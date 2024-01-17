@@ -6,7 +6,7 @@ from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin, User
 class CustomUserManager(UserManager):
     def _create_user(self, email, password, **extra_fields):
         if not email:
-            raise ValueError("Debes tener un correo electronico")
+            raise ValueError("You must have an email")
 
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
